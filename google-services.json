@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "354344807277",
+    "project_id": "reciclape-f46f4",
+    "storage_bucket": "reciclape-f46f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354344807277:android:ab7c38f75539c14b3d8864",
+        "android_client_info": {
+          "package_name": "com.reciclape.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPguX7Uud3i7Nzqbg8_NJwzwT6UZxBjaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354344807277:android:b2ba433a213fa7bd3d8864",
+        "android_client_info": {
+          "package_name": "com.yourcompany.fcmtester"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPguX7Uud3i7Nzqbg8_NJwzwT6UZxBjaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
