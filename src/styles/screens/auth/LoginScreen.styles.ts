@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 /**
  * Estilos para LoginScreen
@@ -17,16 +17,17 @@ export const styles = StyleSheet.create({
   // HEADER
   // ==========================================
   header: {
-    paddingTop: 48,
-    paddingHorizontal: 24,
-    marginBottom: 32,
+    height: 56,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   backButton: {
     padding: 8,
   },
   backButtonText: {
     fontSize: 16,
-    color: '#6B7280',
+    color: '#2563EB',
     fontWeight: '500',
   },
 

@@ -8,6 +8,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "scheme": "reciclape",
+    "jsEngine": "hermes",
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -34,6 +35,11 @@
       },
       "package": "com.reciclape.app",
       "googleServicesFile": "./google-services.json",
+      "config": {
+      "googleMaps": {
+          "apiKey": "AIzaSyB61qqKhdNctfRp5gL7zlJojgcrsIyYQ18"
+        }
+      },
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION",

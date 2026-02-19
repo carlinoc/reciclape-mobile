@@ -27,15 +27,17 @@ export const styles = StyleSheet.create({
   // HEADER
   // ==========================================
   header: {
-    paddingTop: 48,
-    paddingBottom: 32,
+    height: 56,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   backButton: {
-    alignSelf: 'flex-start',
+    padding: 8,
   },
   backButtonText: {
     fontSize: 16,
-    color: '#6B7280',
+    color: '#2563EB',
     fontWeight: '500',
   },
 
@@ -43,13 +45,13 @@ export const styles = StyleSheet.create({
   // HERO SECTION
   // ==========================================
   heroSection: {
-    marginBottom: 32,
+    marginBottom: 0,
   },
   heroTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '600',
     color: '#111827',
-    marginBottom: 8,
+    marginBottom: 0,
     lineHeight: 32,
   },
   heroSubtitle: {
@@ -62,17 +64,17 @@ export const styles = StyleSheet.create({
   // SERVICES SECTION
   // ==========================================
   servicesSection: {
-    marginBottom: 32,
+    marginBottom: 22,
   },
 
   // ==========================================
   // TIME SECTION
   // ==========================================
   timeSection: {
-    marginBottom: 32,
+    marginBottom: 22,
   },
   timeSectionTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '600',
     color: '#111827',
     marginBottom: 16,
@@ -100,6 +102,48 @@ export const styles = StyleSheet.create({
   },
   timeButtonTextActive: {
     color: '#FFFFFF',
+  },
+
+  confirmButton: {
+    marginTop: 16,
+    marginBottom: 20,
+  },
+
+  infoEntity: {
+    marginTop: 12,
+    marginBottom: 0,
+  },
+  infoEntityContent:{
+    backgroundColor: '#EFF6FF',
+    padding: 16,
+    borderRadius: 12,
+    marginTop: 0,
+    marginHorizontal: 4,
+  },
+  infoSectionTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#111827',
+    marginBottom: 10,
+    marginTop: 10,
+  },
+  infoEntityText: {
+    fontSize: 14, 
+    color: '#1E40AF', 
+    lineHeight: 20
+  },
+
+  notifyConte:{
+    backgroundColor: '#EFF6FF',
+    padding: 16,
+    borderRadius: 12,
+    marginTop: 0,
+    marginHorizontal: 4,
+  },
+  notifyConteText: {
+    fontSize: 14, 
+    color: '#1E40AF', 
+    lineHeight: 20
   },
 
   // ==========================================

@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   StatusBar,
   Alert,
   KeyboardAvoidingView,
@@ -20,6 +19,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList, RootStackParamList } from '../../types/navigation.types';
 import authService from '../../../services/api/auth.service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type ExistingUserNavigationProp = NativeStackNavigationProp<AuthStackParamList & RootStackParamList, 'ExistingUser'>;
 
@@ -42,6 +42,13 @@ const ExistingUserScreen: React.FC = () => {
   const handleGoBack = () => {
     navigation.goBack();
   };
+
+  const handleGoHome = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: 'Onboarding' }],
+    });
+  }
 
   const handleLogin = async () => {
     // Validaciones
@@ -180,7 +187,7 @@ const ExistingUserScreen: React.FC = () => {
 
             <TouchableOpacity
               style={styles.secondaryButton}
-              onPress={handleGoBack}
+              onPress={handleGoHome}
               disabled={isLoading}
             >
               <Text style={styles.secondaryButtonText}>

@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   StatusBar,
   Alert,
   KeyboardAvoidingView,
@@ -18,13 +17,13 @@ import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { AuthStackParamList } from '../../types/navigation.types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type UserDataScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'UserData'>;
 type UserDataScreenRouteProp = RouteProp<AuthStackParamList, 'UserData'>;
 
 /**
  * UserDataScreen - Registro completo del usuario
- * SEGÚN NOTAS DE REUNIÓN: "Registro debe tener en la misma pantalla nombre, apellido, email, contraseña, después de haber pedido el número"
  * 
  * ACTUALIZACIÓN: Integra FCM token para notificaciones
  * Recopila: nombre, apellido, DNI, email, contraseña
@@ -168,8 +167,9 @@ const UserDataScreen: React.FC = () => {
 
       await AsyncStorage.setItem('tempUserData', JSON.stringify(tempUserData));
 
-      console.log('✅ Datos de usuario guardados temporalmente');
-      console.log('🔔 FCM Token incluido:', fcmToken ? '✅' : '❌');
+      // console.log('✅ Datos de usuario guardados temporalmente');
+      // console.log('🔔 FCM Token incluido:', fcmToken ? '✅' : '❌');
+      // console.log('Datos temporales:', tempUserData);
 
       // Navegar a Address
       navigation.navigate('Address');
@@ -188,10 +188,10 @@ const UserDataScreen: React.FC = () => {
   // ✅ NUEVO: Función para llenar datos de prueba en desarrollo
   const fillTestData = () => {
     if (__DEV__) {
-      setName('Juan');
-      setLastName('Pérez');
-      setDni('12345678');
-      setEmail('juan.perez@test.com');
+      setName('Carlos');
+      setLastName('Oros Condori');
+      setDni('43704910');
+      setEmail('carlos@gmail.com');
       setPassword('Test123456');
       setConfirmPassword('Test123456');
     }
@@ -341,18 +341,19 @@ const UserDataScreen: React.FC = () => {
                 </Text>
               </View>
             </View>
+                
+            <View style={styles.buttonContinue} >
+                <Button onPress={handleContinue} disabled={isLoading}>
+                {isLoading ? (
+                  <ActivityIndicator color="#FFFFFF" />
+                ) : (
+                  'Continuar'
+                )}
+              </Button>
+            </View>    
+            
           </View>
         </ScrollView>
-
-        <View style={styles.footer}>
-          <Button onPress={handleContinue} disabled={isLoading}>
-            {isLoading ? (
-              <ActivityIndicator color="#FFFFFF" />
-            ) : (
-              'Continuar'
-            )}
-          </Button>
-        </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

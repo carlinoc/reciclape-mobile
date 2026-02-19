@@ -4,7 +4,6 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
   StatusBar,
   Alert,
 } from 'react-native';
@@ -17,6 +16,8 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NeighborTabsParamList, NeighborStackParamList } from '../../types/navigation.types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { BackHandler } from 'react-native';
 
 // NUEVOS IMPORTS
 import historyService from '../../../services/api/history.service';
@@ -49,6 +50,29 @@ const HomeScreen: React.FC = () => {
   // ESTADO DEL FLUJO QR
   const [hasScannedQR, setHasScannedQR] = useState(false);
   const [isProcessingCollection, setIsProcessingCollection] = useState(false);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const backAction = () => {
+        Alert.alert(
+          'Salir de la aplicación',
+          '¿Estás seguro que quieres salir?',
+          [
+            { text: 'Cancelar', style: 'cancel' },
+            { text: 'Salir', onPress: () => BackHandler.exitApp() },
+          ]
+        );
+        return true;
+      };
+
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        backAction
+      );
+
+      return () => backHandler.remove();
+    }, [])
+  );
 
   // CARGAR DATOS AL ENTRAR A LA PANTALLA
   useFocusEffect(

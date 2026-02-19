@@ -16,7 +16,24 @@ export interface District {
   name: string;
   provinceId: string;
   isActive: boolean;
+  location: {
+    x: number; // longitude
+    y: number; // latitude
+  };
 }
+
+export interface Municipality {
+  id: string;
+  officialName: string;
+  districtId: string;
+  address: string;
+  phone: string;
+}
+
+export const getMunicipaliTyByDistrict = async (districtId: string): Promise<Municipality[]> => {
+  const response = await client.get(`/municipalities?districtId=${districtId}`);
+  return response.data.municipalities || response.data;
+};   
 
 export const getDepartments = async (): Promise<Department[]> => {
   const response = await client.get('/departments');
@@ -35,7 +52,7 @@ export const getDistricts = async (provinceId: string): Promise<District[]> => {
 
 export const reverseGeocode = async (latitude: number, longitude: number): Promise<string> => {
   try {
-    const token = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+    const token = process.env.MAPBOX_ACCESS_TOKEN;
     const response = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${token}&language=es`
     );
@@ -57,6 +74,7 @@ const locationService = {
   getProvinces,
   getDistricts,
   reverseGeocode,
+  getMunicipaliTyByDistrict,
 };
 
 export default locationService;

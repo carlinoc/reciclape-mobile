@@ -79,8 +79,8 @@ export const styles = StyleSheet.create({
   },
   formContainer: {
     width: '100%',
-    marginBottom: 32,
-    gap: 20,
+    marginBottom: 22,
+    gap: 12,
   },
   actionContainer: {
     width: '100%',

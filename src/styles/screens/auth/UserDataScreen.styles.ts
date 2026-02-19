@@ -11,12 +11,13 @@ export const styles = StyleSheet.create({
   },
 
   header: {
-    paddingHorizontal: 24,
-    paddingTop: 48,
-    paddingBottom: 16,
+    height: 56,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   backButton: {
-    alignSelf: 'flex-start',
+    padding: 8,
   },
   backButtonText: {
     fontSize: 16,
@@ -31,11 +32,11 @@ export const styles = StyleSheet.create({
 
   heroSection: {
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: 0,
   },
   heroIcon: {
     fontSize: 64,
-    marginBottom: 16,
+    marginBottom: 0,
   },
   heroTitle: {
     fontSize: 28,
@@ -48,11 +49,11 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: '#6B7280',
     textAlign: 'center',
-    lineHeight: 24,
+    lineHeight: 22,
   },
 
   formSection: {
-    gap: 20,
+    gap: 0,
   },
 
   infoBox: {
@@ -61,7 +62,8 @@ export const styles = StyleSheet.create({
     backgroundColor: '#EFF6FF',
     padding: 16,
     borderRadius: 12,
-    marginTop: 24,
+    marginTop: 10,
+    marginBottom: 10,
   },
   infoIcon: {
     fontSize: 20,
@@ -79,4 +81,8 @@ export const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingBottom: 32,
   },
+
+  buttonContinue: {
+    marginBottom: 50,
+  }  
 });

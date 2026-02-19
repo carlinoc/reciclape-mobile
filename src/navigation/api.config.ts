@@ -9,20 +9,19 @@
 // ENVIRONMENT VARIABLES
 // ==========================================
 
-// URL base de la API (producción)
-//export const API_BASE_URL = 'http://localhost:3000';
-export const API_BASE_URL = 'https://reciclape.onrender.com';
-
 // URL base de la API (desarrollo local)
-// Descomentar cuando desarrolles localmente
-// export const API_BASE_URL = 'http://localhost:3001';
+//export const API_BASE_URL = 'http://localhost:3000';
+export const API_BASE_URL = 'http://192.168.1.18:3000';
+
+// URL base de la API (producción)
+//export const API_BASE_URL = 'https://reciclape.onrender.com';
 
 // WebSocket URL
 export const WS_URL = API_BASE_URL.replace('https', 'wss').replace('http', 'ws');
 
 // Mapbox
 // export const MAPBOX_ACCESS_TOKEN = process.env.EXPO_PUBLIC_MAPBOX_TOKEN || '';
-export const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+export const MAPBOX_ACCESS_TOKEN = process.env.MAPBOX_ACCESS_TOKEN;
 
 // ==========================================
 // API ENDPOINTS

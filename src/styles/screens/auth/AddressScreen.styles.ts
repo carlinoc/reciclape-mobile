@@ -26,12 +26,13 @@ export const styles = StyleSheet.create({
   // HEADER
   // ==========================================
   header: {
-    paddingHorizontal: 24,
-    paddingTop: 48,
-    paddingBottom: 16,
+    height: 56,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   backButton: {
-    alignSelf: 'flex-start',
+    padding: 8,
   },
   backButtonText: {
     fontSize: 16,
@@ -51,13 +52,13 @@ export const styles = StyleSheet.create({
   // HERO SECTION
   // ==========================================
   heroSection: {
-    marginBottom: 32,
+    marginBottom: 10,
   },
   heroTitle: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '600',
     color: '#111827',
-    marginBottom: 12,
+    marginBottom: 10,
     lineHeight: 32,
   },
   heroSubtitle: {
@@ -70,8 +71,8 @@ export const styles = StyleSheet.create({
   // FORM SECTION
   // ==========================================
   formSection: {
-    marginBottom: 24,
-  },
+    marginBottom: 0,
+  },  
   label: {
     fontSize: 16,
     fontWeight: '500',
@@ -111,14 +112,20 @@ export const styles = StyleSheet.create({
   addressInputHint: {
     fontSize: 14,
     color: '#9CA3AF',
-    marginTop: 4,
+  },
+
+  titleLocation: {
+    fontSize: 14,
+    color: '#6B7280',
+    marginBottom: 10,
   },
 
   // ==========================================
   // MAP SECTION
   // ==========================================
   mapSection: {
-    marginBottom: 24,
+    marginTop: 0,
+    marginBottom: 0,
   },
   mapLabel: {
     fontSize: 14,
@@ -162,7 +169,7 @@ export const styles = StyleSheet.create({
     height: 300,
     borderRadius: 16,
     overflow: 'hidden',
-    marginBottom: 16,
+    marginBottom: 5,
     borderWidth: 2,
     borderColor: '#E5E7EB',
   },
@@ -184,13 +191,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
     backgroundColor: '#EFF6FF',
     borderRadius: 12,
     borderWidth: 1,
     borderColor: '#BFDBFE',
-    marginBottom: 24,
+    marginBottom: 12,
   },
   locationButtonIcon: {
     fontSize: 20,
@@ -200,6 +207,11 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: '#2563EB',
     fontWeight: '500',
+  },
+
+  confirmButton: {
+    marginTop: 16,
+    marginBottom: 50,
   },
 
   // ==========================================

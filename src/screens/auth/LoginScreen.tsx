@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   StatusBar,
   Alert,
   KeyboardAvoidingView,
@@ -16,6 +15,7 @@ import Button from '../../components/common/Button';
 import Input from '../../components/common/input';
 import { styles } from '../../styles/screens/auth/LoginScreen.styles';
 import { useFCM } from '../../hooks/useFCM';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type LoginScreenNavigationProp = NativeStackNavigationProp<AuthStackParamList, 'Login'>;
 
@@ -107,7 +107,7 @@ const LoginScreen: React.FC = () => {
     // Error general
     return { 
       isValid: false, 
-      message: 'Formato inválido. Ejemplos:\n• 987654321 (Perú)\n• +51987654321 (Perú internacional)\n• +1234567890 (Internacional)' 
+      message: 'Formato inválido. Ejemplos:\n• 987654321 (Perú)\n• +51987654321 (Perú internacional)' 
     };
   };
 
@@ -119,7 +119,7 @@ const LoginScreen: React.FC = () => {
       return;
     }
 
-    // ✅ MANTENIDO: Tu lógica de normalización original
+    // MANTENIDO: Tu lógica de normalización original
     let normalizedPhone = phone.replace(/\s/g, '').replace(/[-()]/g, '');
     
     // Si es número peruano sin código país, agregarlo
@@ -134,8 +134,7 @@ const LoginScreen: React.FC = () => {
     if (fcmToken) {
       console.log('🔑 FCM Token (primeros 50 chars):', fcmToken.substring(0, 50) + '...');
     }
-    
-    // ✅ ACTUALIZADO: Navegar a UserData incluyendo FCM token
+        
     navigation.navigate('UserData', { 
       phoneNumber: normalizedPhone,
       fcmToken: fcmToken || undefined // Solo incluir si existe
@@ -186,7 +185,7 @@ const LoginScreen: React.FC = () => {
               style={{ position: 'absolute', right: 20, top: 20 }}
               onPress={() => {
                 if (__DEV__) {
-                  setPhone('+51987654321');
+                  setPhone('987654321');
                 }
               }}
             >

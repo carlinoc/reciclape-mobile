@@ -1,6 +1,7 @@
 import client from './client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FCMService from '../firebase/fcm.service';
+import { Alert } from 'react-native';
 
 // ============================================
 // INTERFACES
@@ -20,6 +21,7 @@ export interface LoginResponse {
     email: string;
     role: string;
     municipalityId?: string;
+    isActive?: boolean;
   };
 }
 
@@ -32,15 +34,13 @@ export interface RegisterNeighborRequest {
   dni?: string;
   districtId: string;
   street: string;
-  number?: string;
-  apartment?: string;
   latitude: number;
   longitude: number;
   municipalityId?: string;
-  zoneId?: string;
   isActive?: boolean;
   fcmToken?: string;  // Opcional en registro
   device?: string;
+  notifyBefore?: number | null;
 }
 
 export interface RegisterResponse {
@@ -115,9 +115,7 @@ class AuthService {
    */
   async registerNeighbor(data: RegisterNeighborRequest): Promise<RegisterResponse> {
     try {
-      // ✅ NUEVO: Obtener FCM Token para registro
       let fcmToken = data.fcmToken;
-      
       if (!fcmToken) {
         try {
           console.log('🔄 Obteniendo FCM token para registro...');
@@ -141,15 +139,12 @@ class AuthService {
         dni: data.dni || null,
         districtId: data.districtId,
         street: data.street,
-        number: data.number ? String(data.number) : '',
-        apartment: data.apartment ? String(data.apartment) : '',
         latitude: data.latitude,
         longitude: data.longitude,
         municipalityId: data.municipalityId || null,
-        zoneId: data.zoneId || null,
-        isActive: true,
-        fcmToken: fcmToken || null, // ✅ FCM Token real
+        fcmToken: fcmToken || null,
         device: data.device || 'Android',
+        notifyBefore : data.notifyBefore || null,
       };
 
       console.log('📤 Registrando vecino:', payload.email);
@@ -164,8 +159,8 @@ class AuthService {
       
       return response.data;
     } catch (error: any) {
-      console.error('❌ Error registrando vecino:', error.response?.data || error.message);
-      throw new Error(error.response?.data?.message || 'Error al completar registro');
+      console.error('❌ Error en registro:', error.response?.data || error.message);
+      throw error;
     }
   }
 
